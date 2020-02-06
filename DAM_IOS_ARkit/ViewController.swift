@@ -86,6 +86,38 @@ class ViewController: UIViewController {
         //Añadir elemento en base a otro nodo.
         
         node.addChildNode(cylinderNode)*/
+        
+        /*node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        node.position = SCNVector3(0, 0, -0.3)
+        
+        self.mSceneview.scene.rootNode.addChildNode(node)
+        
+        let sphere = SCNNode(geometry: SCNSphere(radius: 0.06))
+        sphere.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+        sphere.position = SCNVector3(0, 0, 0)
+        
+        node.addChildNode(sphere)*/
+        
+        node.geometry = SCNBox(width: 0.2, height: 0.15, length: 0.1, chamferRadius: 0)
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        node.position = SCNVector3(0, 0, -0.3)
+        
+        self.mSceneview.scene.rootNode.addChildNode(node)
+        
+        let pyramid = SCNNode(geometry: SCNPyramid(width: 0.2, height: 0.08, length: 0.1))
+        pyramid.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        pyramid.position = SCNVector3(0, (0.15 / 2), 0)
+        //Rotar un objeto.
+        //pyramid.eulerAngles = SCNVector3(Float(90.degreesToRadians), 0, 0)
+        
+        node.addChildNode(pyramid)
+        
+        let plane = SCNNode(geometry: SCNPlane(width: 0.05, height: 0.05))
+        plane.geometry?.firstMaterial?.diffuse.contents = UIColor.yellow
+        plane.position = SCNVector3(0, -0.075 + 0.025, (0.1 / 2) + 0.001)
+        
+        node.addChildNode(plane)
     }
     
     @IBAction func restartAction(_ sender: Any) {
@@ -105,5 +137,10 @@ class ViewController: UIViewController {
     func randomNumbers(first: CGFloat, second: CGFloat) -> CGFloat{
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(first - second) + min(first, second)
     }
+}
+
+extension Int {
+    //Variable calculada para pasar un valor a radianes.
+    var degreesToRadians: Double { return Double(self) * .pi/180 }
 }
 
