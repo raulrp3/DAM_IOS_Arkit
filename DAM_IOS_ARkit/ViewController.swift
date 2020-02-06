@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func playAction(_ sender: Any) {
-        //let node = SCNNode()
+        let node = SCNNode()
         //Cubo.
         //node.geometry = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.005)
         
@@ -57,6 +57,35 @@ class ViewController: UIViewController {
         let z = self.randomNumbers(first: -0.3, second:0.3)
         node.position = SCNVector3(x, y, z)
         self.mSceneview.scene.rootNode.addChildNode(node)*/
+        
+        //Creando figuras formadas por líneas.
+        /*let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: 0, y: 0.2))
+        path.addLine(to: CGPoint(x: 0.2, y: 0.3))
+        path.addLine(to: CGPoint(x: 0.4, y: 0.2))
+        path.addLine(to: CGPoint(x: 0.4, y: 0))
+        
+        let shape = SCNShape(path: path, extrusionDepth: 0.2)
+        
+        node.geometry = shape
+        node.geometry?.firstMaterial?.specular.contents = UIColor.orange
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        node.position = SCNVector3(0, 0, -0.3)
+        
+        self.mSceneview.scene.rootNode.addChildNode(node)
+        
+        //Añadir otro elemento desde el nodo raíz.
+        let cylinderNode = SCNNode(geometry: SCNCylinder(radius: 0.05, height: 0.08))
+        cylinderNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        cylinderNode.geometry?.firstMaterial?.specular.contents = UIColor.orange
+        cylinderNode.position = SCNVector3(0.08, 0.25, 0)
+        
+        //self.mSceneview.scene.rootNode.addChildNode(cylinderNode)
+        
+        //Añadir elemento en base a otro nodo.
+        
+        node.addChildNode(cylinderNode)*/
     }
     
     @IBAction func restartAction(_ sender: Any) {
